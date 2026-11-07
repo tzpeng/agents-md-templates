@@ -70,7 +70,7 @@ agents-md-sync --template-dir ~/agents-md-templates --profile demo --repo ~/.cod
 cd <仓库> && agents-md-sync --template-dir ~/agents-md-templates --profile demo
 ```
 
-或使用封装脚本（已装到 `~/.local/bin/sync-agents`）：
+或使用封装脚本（本仓库 `bin/sync-agents`，已软链到 `~/.local/bin/`）：
 
 ```bash
 sync-agents              # 同步全局 + 默认仓库
