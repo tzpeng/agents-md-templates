@@ -43,7 +43,7 @@ sync-agents --help
 ```bash
 mkdir -p ~/.codex/.agents
 # 写一份 ~/.codex/.agents/PROJECT.md（仓库专属的 PROJECT 片段）
-agents-md-sync --template-dir ~/agents-md-templates --profile ROB006 --repo ~/.codex
+agents-md-sync --template-dir ~/agents-md-templates --profile demo --repo ~/.codex
 ```
 
 每个要接入的仓库：
@@ -64,10 +64,11 @@ agents-md-templates/
 │   ├── REVIEW.md
 │   └── DO_NOT.md
 └── profiles/
-    └── ROB006/             # 一个 profile = 一套技术栈/团队规范
+    └── demo/               # 一个 profile = 一套技术栈/团队规范
         ├── CODING.md
         ├── TESTING.md
-        └── BUILD.md
+        ├── BUILD.md
+        └── AGENTS.md.tmpl  # 可选：自定义章节集合/顺序
 ```
 
 ## 片段查找顺序
@@ -115,10 +116,10 @@ mkdir -p profiles/<技术栈>
 
 ```bash
 # 全局（Codex 所有会话）
-agents-md-sync --template-dir ~/agents-md-templates --profile ROB006 --repo ~/.codex
+agents-md-sync --template-dir ~/agents-md-templates --profile demo --repo ~/.codex
 
 # 某个仓库
-cd <仓库> && agents-md-sync --template-dir ~/agents-md-templates --profile ROB006
+cd <仓库> && agents-md-sync --template-dir ~/agents-md-templates --profile demo
 ```
 
 或使用封装脚本（本仓库 `bin/sync-agents`，已软链到 `~/.local/bin/`）：
