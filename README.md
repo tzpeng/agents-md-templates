@@ -62,13 +62,19 @@ cd <仓库> && sync-agents
 agents-md-templates/
 ├── common/                 # 所有 profile 共享的片段（兜底）
 │   ├── REVIEW.md
-│   └── DO_NOT.md
+│   ├── DO_NOT.md
+│   └── WORKFLOW.md
 └── profiles/
-    └── demo/               # 一个 profile = 一套技术栈/团队规范
+    ├── demo/
+    │   ├── CODING.md
+    │   ├── TESTING.md
+    │   ├── BUILD.md
+    │   └── AGENTS.md.tmpl
+    └── ROB006/
         ├── CODING.md
         ├── TESTING.md
         ├── BUILD.md
-        └── AGENTS.md.tmpl  # 可选：自定义章节集合/顺序
+        └── AGENTS.md.tmpl
 ```
 
 ## 片段查找顺序
