@@ -4,6 +4,58 @@
 
 这里只放规范片段（`.md` 源文件），生成的 `AGENTS.md` 落在各目标仓库和 `~/.codex/AGENTS.md` 中，**不要手改生成产物**。
 
+## 安装
+
+### 前置要求
+
+- Node.js ≥ 22（agents-md-sync 依赖）
+- git、ssh（克隆与推送本仓库）
+
+### 1. 安装 agents-md-sync
+
+```bash
+npm install -g agents-md-sync
+agents-md-sync --version   # 验证
+```
+
+### 2. 克隆模板仓库
+
+```bash
+git clone git@github.com:tzpeng/agents-md-templates.git ~/agents-md-templates
+```
+
+### 3. 软链封装脚本
+
+```bash
+mkdir -p ~/.local/bin
+ln -s ~/agents-md-templates/bin/sync-agents ~/.local/bin/sync-agents
+rehash                       # zsh 刷新命令缓存（bash 用 hash -r）
+sync-agents --help
+```
+
+> `~/.local/bin` 需在 PATH 中；若不在，在 `~/.zshrc`（或 `~/.bashrc`）加一行：
+> `export PATH="$HOME/.local/bin:$PATH"`
+
+### 4. 初始化全局（Codex）与各仓库
+
+首次生成全局指令（Codex 所有会话）：
+
+```bash
+mkdir -p ~/.codex/.agents
+# 写一份 ~/.codex/.agents/PROJECT.md（仓库专属的 PROJECT 片段）
+agents-md-sync --template-dir ~/agents-md-templates --profile demo --repo ~/.codex
+```
+
+每个要接入的仓库：
+
+```bash
+mkdir -p <仓库>/.agents
+# 写 <仓库>/.agents/PROJECT.md
+cd <仓库> && sync-agents
+```
+
+之后日常只需 `sync-agents`（或 CI 用 `sync-agents --check`）。
+
 ## 目录结构
 
 ```text
