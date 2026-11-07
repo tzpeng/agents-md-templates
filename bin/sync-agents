@@ -11,7 +11,7 @@ set -euo pipefail
 #
 # 可用环境变量覆盖默认值:
 #   AGENTS_TEMPLATE_DIR   模板目录（默认 ~/agents-md-templates）
-#   AGENTS_PROFILE        要用的 profile（默认 demo）
+#   AGENTS_PROFILE        要用的 profile（默认 ROB006）
 # =============================================================================
 
 usage() {
@@ -19,13 +19,13 @@ usage() {
 }
 
 TEMPLATE_DIR="${AGENTS_TEMPLATE_DIR:-$HOME/agents-md-templates}"
-PROFILE="${AGENTS_PROFILE:-demo}"
+PROFILE="${AGENTS_PROFILE:-ROB006}"
 GLOBAL_REPO="$HOME/.codex"
 
 # 默认要同步的仓库列表，追加即可。
 REPOS=(
   "$GLOBAL_REPO"
-  "$HOME/agents-md-sync-demo"
+  # "$HOME/workspaces/anycloud39av200"   # 追加真实仓库
 )
 
 CHECK=0
