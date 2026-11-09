@@ -25,6 +25,7 @@ GLOBAL_REPO="$HOME/.codex"
 # 默认要同步的仓库列表，追加即可。
 REPOS=(
   "$GLOBAL_REPO"
+  "$HOME/workspaces/anycloud39av200"
   "$HOME/agents-md-sync-demo"
 )
 
