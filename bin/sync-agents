@@ -26,7 +26,6 @@ GLOBAL_REPO="$HOME/.codex"
 REPOS=(
   "$GLOBAL_REPO"
   "$HOME/workspaces/anycloud39av200"
-  "$HOME/agents-md-sync-demo"
 )
 
 CHECK=0
